@@ -1,5 +1,4 @@
 package patientenverwaltung;
-
 import java.util.ArrayList;
 
 
@@ -19,9 +18,11 @@ public class Patient {
         this.vorname = vorname;
         this.nachname = nachname;
         this.wohnort = wohnort;
+        this.krankheiten = new ArrayList<String>();
 
-        this.krankheiten = new ArrayList();
     }
+
+
 
 
     public void setKrankheiten(String krankheit) {
