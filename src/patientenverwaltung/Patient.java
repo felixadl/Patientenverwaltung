@@ -5,20 +5,22 @@ import java.util.ArrayList;
 
 public class Patient {
 
-    private int alter;
+    private String geburtstag;
     private String vorname;
     private String nachname;
     private String wohnort;
-    private ArrayList<String> krankheiten;
+    private String adresse;
+    //private ArrayList<String> krankheiten;
 
 
-    public Patient (String vorname, String nachname, int alter, String wohnort) {
+    public Patient (String vorname, String nachname, String geburtstag, String wohnort, String adresse) {
 
-        this.alter = alter;
+        this.geburtstag = geburtstag;
         this.vorname = vorname;
         this.nachname = nachname;
         this.wohnort = wohnort;
-        this.krankheiten = new ArrayList<String>();
+        this.adresse = adresse;
+        //this.krankheiten = new ArrayList<String>();
 
     }
 
@@ -27,7 +29,7 @@ public class Patient {
 
     public void setKrankheiten(String krankheit) {
 
-            this.krankheiten.add(krankheit);
+           // this.krankheiten.add(krankheit);
 
 
     }
