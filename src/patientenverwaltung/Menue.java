@@ -10,8 +10,20 @@ public class Menue extends JFrame {
     private JTextField vorname;
     private JPanel panel;
     private JTextField nachname;
+    private JLabel info;
+    private JTextField geburtstag;
+    private JTextField wohnort;
+    private JTextField adresse;
     public String Vorname;
     public String Nachname;
+    public String Geburtstag;
+    public String Wohnort;
+    public String Adresse;
+    private final String StringNachname = "Nachname";
+    private final String StringVorname = "Vorname";
+    private final String StringGeburtstag = "Geburtstag";
+    private final String StringWohnort = "Wohnort";
+    private final String StringAdresse = "Adresse";
 
 
     public Menue(){
@@ -19,7 +31,7 @@ public class Menue extends JFrame {
         setBounds(100,100,400,400);
         setVisible(true);
         setContentPane(panel);
-
+        info.setText(" ");
         ButtonInitialisieren();
 
     }
@@ -31,7 +43,16 @@ public class Menue extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 Vorname = vorname.getText();
                 Nachname = nachname.getText();
-                System.out.println(Vorname + " " + Nachname);
+                Geburtstag = geburtstag.getText();
+                Wohnort = wohnort.getText();
+                Adresse = adresse.getText();
+                if(Vorname.equals(StringVorname)|| Nachname.equals(StringNachname) || Geburtstag.equals(StringGeburtstag)
+                        || Wohnort.equals(StringWohnort) || Adresse.equals(StringAdresse))
+                {
+                    info.setText("Error! Gib alles an");
+                }else{
+
+                }
             }
         });
     }
