@@ -51,7 +51,7 @@ public class Menue extends JFrame {
                 Wohnort = wohnort.getText();
 
                 if(Vorname.equals(StringVorname)|| Nachname.equals(StringNachname) || Geburtstag.equals(StringGeburtstag)
-                        || Adresse.equals(StringWohnort) || Wohnort.equals(StringAdresse))
+                        || Adresse.equals(StringAdresse) || Wohnort.equals(StringWohnort))
                 {
                     info.setText("Error! Bitte alle Informationen angeben");
                 }
