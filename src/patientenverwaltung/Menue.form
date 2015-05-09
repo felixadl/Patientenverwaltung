@@ -34,6 +34,7 @@
         </constraints>
         <properties>
           <text value="Vorname"/>
+          <toolTipText value="Vorname des anzulegenden Patienten"/>
         </properties>
       </component>
       <component id="29b26" class="javax.swing.JTextField" binding="nachname">
@@ -44,6 +45,7 @@
         </constraints>
         <properties>
           <text value="Nachname"/>
+          <toolTipText value="Nachname des anzulegenden Patienten"/>
         </properties>
       </component>
       <component id="8db8c" class="javax.swing.JLabel" binding="info">
@@ -51,7 +53,7 @@
           <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="info"/>
+          <text value=""/>
         </properties>
       </component>
       <component id="4f806" class="javax.swing.JTextField" binding="geburtstag">
@@ -62,6 +64,7 @@
         </constraints>
         <properties>
           <text value="Geburtstag"/>
+          <toolTipText value="Geburtsdatum des anzulegenden Patienten    Format: DD-MM-JJJJ"/>
         </properties>
       </component>
       <component id="c6a79" class="javax.swing.JTextField" binding="wohnort">
@@ -72,6 +75,7 @@
         </constraints>
         <properties>
           <text value="Wohnort"/>
+          <toolTipText value="Wohnort des anzulegenden Patienten"/>
         </properties>
       </component>
       <component id="56cd1" class="javax.swing.JTextField" binding="adresse">
@@ -82,6 +86,7 @@
         </constraints>
         <properties>
           <text value="Adresse"/>
+          <toolTipText value="Adresse des anzulegenden Patienten"/>
         </properties>
       </component>
     </children>

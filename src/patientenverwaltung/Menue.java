@@ -3,6 +3,8 @@ package patientenverwaltung;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 
+import static patientenverwaltung.Controller.*;
+
 
 public class Menue extends JFrame {
 
@@ -12,27 +14,28 @@ public class Menue extends JFrame {
     private JTextField nachname;
     private JLabel info;
     private JTextField geburtstag;
-    private JTextField wohnort;
     private JTextField adresse;
+    private JTextField wohnort;
     public String Vorname;
     public String Nachname;
     public String Geburtstag;
-    public String Wohnort;
     public String Adresse;
+    public String Wohnort;
     private final String StringNachname = "Nachname";
     private final String StringVorname = "Vorname";
     private final String StringGeburtstag = "Geburtstag";
-    private final String StringWohnort = "Wohnort";
     private final String StringAdresse = "Adresse";
+    private final String StringWohnort = "Wohnort";
+    public Controller controller;
 
 
-    public Menue(){
+    public Menue(Controller c){
 
-        setBounds(100,100,400,400);
+        setBounds(100, 100, 550, 550);
         setVisible(true);
         setContentPane(panel);
-        info.setText(" ");
         ButtonInitialisieren();
+        this.controller = c;
 
     }
 
@@ -44,16 +47,28 @@ public class Menue extends JFrame {
                 Vorname = vorname.getText();
                 Nachname = nachname.getText();
                 Geburtstag = geburtstag.getText();
-                Wohnort = wohnort.getText();
                 Adresse = adresse.getText();
+                Wohnort = wohnort.getText();
+
                 if(Vorname.equals(StringVorname)|| Nachname.equals(StringNachname) || Geburtstag.equals(StringGeburtstag)
-                        || Wohnort.equals(StringWohnort) || Adresse.equals(StringAdresse))
+                        || Adresse.equals(StringWohnort) || Wohnort.equals(StringAdresse))
                 {
-                    info.setText("Error! Gib alles an");
-                }else{
+                    info.setText("Error! Bitte alle Informationen angeben");
+                }
+
+                else if(Vorname.equals("") || Nachname.equals("") || Geburtstag.equals("") || Adresse.equals("") || Wohnort.equals("") )
+                {
+                    info.setText("Error! Bitte alle Informationen angeben");
+                }
+
+                else {
+
+                    controller.PatientSpeichern(Vorname, Nachname, Geburtstag, Adresse, Wohnort);
+
 
                 }
+                }
             }
-        });
+         );
     }
 }

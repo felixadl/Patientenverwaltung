@@ -2,7 +2,6 @@ package patientenverwaltung;
 import java.util.ArrayList;
 
 
-
 public class Patient {
 
     private String geburtstag;
@@ -13,13 +12,13 @@ public class Patient {
     //private ArrayList<String> krankheiten;
 
 
-    public Patient (String vorname, String nachname, String geburtstag, String wohnort, String adresse) {
+    public Patient (String vorname, String nachname, String geburtstag, String adresse, String wohnort) {
 
         this.geburtstag = geburtstag;
         this.vorname = vorname;
         this.nachname = nachname;
-        this.wohnort = wohnort;
         this.adresse = adresse;
+        this.wohnort = wohnort;
         //this.krankheiten = new ArrayList<String>();
 
     }
