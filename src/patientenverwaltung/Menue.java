@@ -91,12 +91,15 @@ public class Menue extends JFrame {
         Sortieren.addActionListener(new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                SortTxt("patient");
+                SortTxt("patienten");
             }
         });
     }
 
     public void ComboBoxFill(){
+
+        SortTxt("patienten");
+
         String line;
         int StringLenght = 0;
         try{
@@ -166,6 +169,7 @@ public class Menue extends JFrame {
             }
 
         }
+
     }
 
 }
