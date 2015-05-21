@@ -32,17 +32,17 @@ public class Menue extends JFrame {
     private final String StringGeburtstag = "Geburtstag";
     private final String StringAdresse = "Adresse";
     private final String StringWohnort = "Wohnort";
-    public Controller controller;
+    //public Controller controller;
     PrintWriter pWriter = null;
 
 
-    public Menue(Controller c){
+    public Menue(){
 
         setBounds(100, 100, 550, 550);
         setVisible(true);
         setContentPane(panel);
         ButtonInitialisieren();
-        this.controller = c;
+        //this.controller = c;
         ComboBoxFill();
 
     }
