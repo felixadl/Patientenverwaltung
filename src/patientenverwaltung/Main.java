@@ -1,5 +1,8 @@
 package patientenverwaltung;
 import javax.swing.*;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 
 public class Main {
@@ -16,6 +19,9 @@ public class Main {
 
 
     }
+
+
+
 
 }
 

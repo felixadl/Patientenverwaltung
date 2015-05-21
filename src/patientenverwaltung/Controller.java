@@ -24,6 +24,7 @@ public class Controller {
         Patient p = new Patient(Vorname, Nachname, Geburtstag, Adresse, Wohnort);
 
         this.patienten.add(p);
+        
 
         System.out.println("Neuer Patient: " + Vorname + " " + Nachname + ", geboren am " + Geburtstag + ", wohnhaft in " + Adresse + ", " + Wohnort + ".");
 
