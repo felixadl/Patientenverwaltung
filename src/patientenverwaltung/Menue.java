@@ -20,8 +20,6 @@ public class Menue extends JFrame {
     private JTextField geburtstag;
     private JTextField adresse;
     private JTextField wohnort;
-    private JComboBox patientenList;
-    private JButton Sortieren;
     public String Vorname;
     public String Nachname;
     public String Geburtstag;
@@ -43,7 +41,7 @@ public class Menue extends JFrame {
         setContentPane(panel);
         ButtonInitialisieren();
         //this.controller = c;
-        ComboBoxFill();
+        super.setTitle("Neuen Patienten hinzufügen");
 
     }
 
@@ -87,85 +85,6 @@ public class Menue extends JFrame {
                 }
             }
          );
-
-        Sortieren.addActionListener(new AbstractAction() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                SortTxt("patient");
-            }
-        });
-    }
-
-    public void ComboBoxFill(){
-        String line;
-        int StringLenght = 0;
-        try{
-            BufferedReader reader = new BufferedReader(new FileReader("patienten.txt"));
-            int count = 0;
-            while( reader.readLine() != null){
-                count ++;
-            }
-            StringLenght = count;
-        }catch (Exception ex){
-            ex.printStackTrace();
-        }
-
-        String array[] = new String[StringLenght];
-        try{
-            FileReader reader = new FileReader("patienten.txt");
-            BufferedReader bfreader = new BufferedReader(reader);
-
-                for (int i = 0;(line = bfreader.readLine()) != null; i++) {
-                    patientenList.addItem(line);
-                }
-            }catch(IOException ioe){
-                System.out.println();
-            }
-
-    }
-
-    public void SortTxt(String txt){
-        String line;
-        int StringLenght = 0;
-        ArrayList TXT = new ArrayList();
-        try{
-            BufferedReader reader = new BufferedReader(new FileReader("patienten.txt"));
-            int count = 0;
-            while( reader.readLine() != null){
-                count ++;
-            }
-            StringLenght = count;
-        }catch (Exception ex){
-            ex.printStackTrace();
-        }
-
-        String array[] = new String[StringLenght];
-        try{
-            FileReader reader = new FileReader(txt+ ".txt");
-            BufferedReader bfreader = new BufferedReader(reader);
-
-            for (int i = 0;(line = bfreader.readLine()) != null; i++) {
-                TXT.add(line);
-            }
-        }catch(IOException ioe){
-            System.out.println();
-        }
-        TXT.sort(null);
-
-        try{
-            pWriter = new PrintWriter(new FileWriter("patienten.txt"));
-            for(int i = 0 ; i < TXT.size(); i++) {
-                pWriter.println(TXT.get(i).toString());
-            }
-        } catch (IOException ioe){
-            ioe.printStackTrace();
-        }finally {
-            if(pWriter != null) {
-                pWriter.flush();
-                pWriter.close();
-            }
-
-        }
     }
 
 }

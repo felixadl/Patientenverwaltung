@@ -1,4 +1,5 @@
 package patientenverwaltung;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -30,9 +31,11 @@ public class Controller {
     }
 
     public void Autom_fuellen() {
+
         PrintWriter pWriter=null;
         try{
             pWriter = new PrintWriter(new FileWriter("patienten.txt",true),true);
+            new FileOutputStream("patienten.txt").close();
             pWriter.println("Adler"  +" " + "Felix"+ " " + "22.02.98.1998" + " " + "Am Kirschgarten 1" + " " + "94127 Neuburg/Inn");
             pWriter.println("Adler"  +" " + "Lorenz"+ " " + "22.02.98.1998" + " " +"Am Kirschgarten 1" + " " + "94127 Neuburg/Inn");
             pWriter.println("Wik"  +" " + "Julian"+ " " + "29.08.1997" + " " + "Brunnfeld 14" + " " + "94127 Neuburg/Inn");
