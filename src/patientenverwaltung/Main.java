@@ -11,7 +11,7 @@ public class Main {
 
         Controller c = new Controller();
         //Menue m = new Menue(c);
-        Startmenü st = new Startmenü(c);
+        Startmenü st = new Startmenü();
 
 
 

@@ -36,7 +36,7 @@ public class Menue extends JFrame {
 
     public Menue(){
 
-        setBounds(100, 100, 550, 550);
+        setBounds(100, 100, 550, 300);
         setVisible(true);
         setContentPane(panel);
         ButtonInitialisieren();

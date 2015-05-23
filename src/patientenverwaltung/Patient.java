@@ -4,26 +4,25 @@ import java.util.ArrayList;
 
 public class Patient {
 
-    private String geburtstag;
     private String vorname;
     private String nachname;
-    private String wohnort;
-    private String adresse;
+    private String krankheit;
     //private ArrayList<String> krankheiten;
 
 
-    public Patient (String vorname, String nachname, String geburtstag, String adresse, String wohnort) {
+    public Patient (String vorname, String nachname, String krankheit) {
 
-        this.geburtstag = geburtstag;
         this.vorname = vorname;
         this.nachname = nachname;
-        this.adresse = adresse;
-        this.wohnort = wohnort;
+        this.krankheit = krankheit;
         //this.krankheiten = new ArrayList<String>();
 
     }
 
-
+    public String PatientInfo(){
+        String p = vorname + " " + nachname + " " + krankheit;
+        return p;
+    }
 
 
     public void setKrankheiten(String krankheit) {
