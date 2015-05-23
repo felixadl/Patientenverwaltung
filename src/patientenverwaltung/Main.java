@@ -10,8 +10,8 @@ public class Main {
     public static void main(String[] args) {
 
         Controller c = new Controller();
-        Menue m = new Menue(c);
-
+        //Menue m = new Menue(c);
+        Startmenü st = new Startmenü(c);
 
 
 
