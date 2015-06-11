@@ -1,4 +1,5 @@
 package patientenverwaltung;
+import javax.swing.*;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -20,14 +21,15 @@ public class Controller {
     }
 
 
-    public void PatientSpeichern(String Vorname, String Nachname, String Geburtstag, String Adresse, String Wohnort) {
+    public void PatientSpeichern(String Vorname, String Nachname, String krankheit,boolean notfall){
 
-        Patient p = new Patient(Vorname, Nachname, Geburtstag, Adresse, Wohnort);
+        Patient p = new Patient(Vorname, Nachname, krankheit);
+        if (notfall == false) {
+            this.patienten.add(p);
+        }else {
+            this.patienten.add(1,p);
+        }
 
-        this.patienten.add(p);
-        
-
-        System.out.println("Neuer Patient: " + Vorname + " " + Nachname + ", geboren am " + Geburtstag + ", wohnhaft in " + Adresse + ", " + Wohnort + ".");
 
     }
 
@@ -51,6 +53,31 @@ public class Controller {
         }
     }
 
+    public void ArrayListTextAreaAnzeigen(JTextArea TextArea, JTextArea Behandlung){
+        JTextArea Area;
+        Area = TextArea;
+        JTextArea behandlung;
+        behandlung = Behandlung;
+        String Patienten = "";
+        Patient patient_behandlung = patienten.get(0);
+        if (patienten.isEmpty()){
+            behandlung.setText(" ");
+        }else {
+            behandlung.setText(patient_behandlung.PatientInfo());
+        }
+        for (int i = 1; i < patienten.size(); i++){
+            String p = "";
+            Patient patient;
+            patient = patienten.get(i);
+            p = patient.PatientInfo();
+            Patienten = Patienten+ " "+ p + "\n";
+            System.out.println(Patienten);
+            Area.setText(Patienten);
+        }
+    }
 
-
+    public void dernaechste(JTextArea TextArea, JTextArea Behandlung){
+        patienten.remove(0);
+        ArrayListTextAreaAnzeigen(TextArea,Behandlung);
+    }
 }

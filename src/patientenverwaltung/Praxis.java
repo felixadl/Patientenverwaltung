@@ -1,23 +1,62 @@
 package patientenverwaltung;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-/**
- * Created by schueler on 21.05.2015.
- */
 public class Praxis extends JFrame{
     private JPanel panel;
     private JComboBox patientenList;
+    private JTextField Krankheit;
+    private JCheckBox checkBox1;
+    private JButton warteliste;
+    private JTextArea WarteListe;
+    private JTextArea Behandlung;
+    private JButton DerNaechste;
+    public Controller controller;
 
-    public Praxis(){
+    public Praxis(Controller c){
         setBounds(100, 100, 550, 550);
         setVisible(true);
         setContentPane(panel);
         super.setTitle("Praxis");
         ComboBoxFill();
+        ButtonInitialisieren();
+        this.controller = c;
+    }
+
+    private void ButtonInitialisieren() {
+        warteliste.addActionListener(new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String krankheit = Krankheit.getText();
+                String Notfall;
+                boolean notfall = false;
+                if(checkBox1.isSelected()){
+                    notfall = true;
+                    Notfall = "ACHTUNG! NOTFALL";
+                }else{
+                    notfall = false;
+                    Notfall = "kein Notfall";
+                }
+                String PatientLang = (String)patientenList.getSelectedItem();
+                String [] patientString = PatientLang.split(" ");
+                String Patient =  patientString[0] + " " + patientString[1] + " " + krankheit +Notfall;
+                controller.PatientSpeichern(patientString[0], patientString[1], krankheit + Notfall,notfall);
+                controller.ArrayListTextAreaAnzeigen(WarteListe,Behandlung);
+                System.out.println(Patient);
+                System.out.println(notfall);
+            }
+        });
+
+        DerNaechste.addActionListener(new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                controller.dernaechste(WarteListe,Behandlung);
+            }
+        });
     }
 
     public void ComboBoxFill(){

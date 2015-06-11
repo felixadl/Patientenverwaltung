@@ -12,14 +12,12 @@ public class Startmenü extends JFrame{
    private JButton neuenPatientenZurPraxisButton;
     private JPanel panel;
     private JButton patientInPraxisAufnehmenButton;
-    public Controller controller;
     PrintWriter pWriter = null;
 
-    public Startmenü(Controller c){
+    public Startmenü(){
         setBounds(100, 100, 550, 550);
         setVisible(true);
         setContentPane(panel);
-        this.controller = c;
         ButtonInitalisieren();
         super.setTitle("Startmenü");
         SortTxt("patienten");
@@ -36,7 +34,8 @@ public class Startmenü extends JFrame{
         patientInPraxisAufnehmenButton.addActionListener(new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Praxis p = new Praxis();
+                Controller c = new Controller();
+                Praxis p = new Praxis(c);
             }
         });
     }
