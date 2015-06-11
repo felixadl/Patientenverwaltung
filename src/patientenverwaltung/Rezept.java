@@ -1,14 +1,17 @@
 package patientenverwaltung;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.net.URL;
 
-/**
- * Created by schueler on 11.06.2015.
- */
+
 public class Rezept extends JFrame {
 
     private JPanel panel;
@@ -22,11 +25,12 @@ public class Rezept extends JFrame {
 
     public Rezept () {
 
-        this.setBounds(100,100,500,500);
+        this.setBounds(100, 100, 500, 500);
         this.setVisible(true);
-        this.setContentPane(panel);
-        this.setTitle("Rezept erstellen");
-        ComboBoxFill();
+        this.setContentPane(this.panel);
+        super.setTitle("Rezept erstellen");
+        this.ComboBoxFill();
+        this.ButtonInitialisieren();
 
 
     }
@@ -38,13 +42,26 @@ public class Rezept extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
 
+                String PatientLang = (String) patientenList.getSelectedItem();
+                String[] patientString = PatientLang.split(" ");
+
+                vornametxt.setText(patientString[0]);
+                nachnametxt.setText(patientString[1]);
+                geburtsdatumtxt.setText(patientString[2]);
+            }
+        });
+
+
+        rezeptErstellenButton.addActionListener(new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+
 
             }
         });
 
     }
-
-
 
     public void ComboBoxFill(){
         String line;
