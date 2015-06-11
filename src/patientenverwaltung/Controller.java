@@ -23,8 +23,9 @@ public class Controller {
 
     public void PatientSpeichern(String Vorname, String Nachname, String krankheit,boolean notfall){
 
-        Patient p = new Patient(Vorname, Nachname, krankheit);
-        if (notfall == false) {
+        Patient p;
+        p = new Patient(Vorname, Nachname, krankheit);
+        if (!notfall) {
             this.patienten.add(p);
         }else {
             this.patienten.add(1,p);
@@ -39,8 +40,8 @@ public class Controller {
         try{
             pWriter = new PrintWriter(new FileWriter("patienten.txt",true),true);
             new FileOutputStream("patienten.txt").close();
-            pWriter.println("Adler"  +" " + "Felix"+ " " + "22.02.98.1998" + " " + "Am Kirschgarten 1" + " " + "94127 Neuburg/Inn");
-            pWriter.println("Adler"  +" " + "Lorenz"+ " " + "22.02.98.1998" + " " +"Am Kirschgarten 1" + " " + "94127 Neuburg/Inn");
+            pWriter.println("Adler"  +" " + "Felix"+ " " + "22.02.1998" + " " + "Am Kirschgarten 1" + " " + "94127 Neuburg/Inn");
+            pWriter.println("Adler"  +" " + "Lorenz"+ " " + "22.02.1998" + " " +"Am Kirschgarten 1" + " " + "94127 Neuburg/Inn");
             pWriter.println("Wik"  +" " + "Julian"+ " " + "29.08.1997" + " " + "Brunnfeld 14" + " " + "94127 Neuburg/Inn");
             pWriter.println("Ellinger"  +" " + "Jonas"+ " " + "22.01.1998" + " " + "Heiningerstrasse 44a" + " " + "94036 Passau");
         } catch (IOException ioe){
