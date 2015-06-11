@@ -60,25 +60,42 @@ public class Controller {
         JTextArea behandlung;
         behandlung = Behandlung;
         String Patienten = "";
-        Patient patient_behandlung = patienten.get(0);
-        if (patienten.isEmpty()){
-            behandlung.setText(" ");
+        Patient patient_behandlung = null;
+
+        if(patienten.isEmpty()==false) {
+            patient_behandlung = patienten.get(0);
+        }
+
+        if (patienten.isEmpty()== true){
+            behandlung.setText("Keiner Aktuell in Behandlung");
+            Area.setText("");
         }else {
             behandlung.setText(patient_behandlung.PatientInfo());
         }
-        for (int i = 1; i < patienten.size(); i++){
-            String p = "";
-            Patient patient;
-            patient = patienten.get(i);
-            p = patient.PatientInfo();
-            Patienten = Patienten+ " "+ p + "\n";
-            System.out.println(Patienten);
-            Area.setText(Patienten);
+        if(patienten.size()<=1) {
+            Area.setText("");
+
+        }else {
+            for (int i = 1; i < patienten.size(); i++) {
+
+                String p = "";
+                Patient patient;
+                patient = patienten.get(i);
+                p = patient.PatientInfo();
+                Patienten = Patienten + " " + p + "\n";
+                System.out.println(Patienten);
+                Area.setText(Patienten);
+            }
         }
     }
 
     public void dernaechste(JTextArea TextArea, JTextArea Behandlung){
-        patienten.remove(0);
-        ArrayListTextAreaAnzeigen(TextArea,Behandlung);
+        if(patienten.size()!=0){
+            patienten.remove(0);
+            ArrayListTextAreaAnzeigen(TextArea,Behandlung);
+        }else{
+
+        }
+
     }
 }
