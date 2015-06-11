@@ -47,7 +47,7 @@ public class Praxis extends JFrame{
                 controller.PatientSpeichern(patientString[0], patientString[1], krankheit + Notfall,notfall);
                 controller.ArrayListTextAreaAnzeigen(WarteListe,Behandlung);
                 System.out.println(Patient);
-                System.out.println(notfall);
+                System.out.println(" "+ notfall);
             }
         });
 
