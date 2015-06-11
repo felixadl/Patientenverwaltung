@@ -12,6 +12,7 @@ public class Startmenü extends JFrame{
    private JButton neuenPatientenZurPraxisButton;
     private JPanel panel;
     private JButton patientInPraxisAufnehmenButton;
+    private JButton rezeptErstellenButton;
     PrintWriter pWriter = null;
 
     public Startmenü(){
@@ -38,6 +39,15 @@ public class Startmenü extends JFrame{
                 Praxis p = new Praxis(c);
             }
         });
+
+        rezeptErstellenButton.addActionListener(new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                Rezept r = new Rezept();
+            }
+        });
+
     }
 
     public void SortTxt(String txt){
