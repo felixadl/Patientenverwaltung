@@ -12,19 +12,16 @@ public class Praxis extends JFrame{
     private JTextField Krankheit;
     private JCheckBox checkBox1;
     private JButton warteliste;
-    private JTextArea WarteListe;
-    private JTextArea Behandlung;
-    private JButton DerNaechste;
-    public Controller controller;
 
-    public Praxis(Controller c){
+
+
+    public Praxis(){
         setBounds(100, 100, 550, 550);
         setVisible(true);
         setContentPane(panel);
         super.setTitle("Praxis");
         ComboBoxFill();
         ButtonInitialisieren();
-        this.controller = c;
     }
 
     private void ButtonInitialisieren() {
@@ -34,27 +31,22 @@ public class Praxis extends JFrame{
                 String krankheit = Krankheit.getText();
                 String Notfall;
                 boolean notfall = false;
-                if(checkBox1.isSelected()){
+                if (checkBox1.isSelected()) {
                     notfall = true;
                     Notfall = "ACHTUNG! NOTFALL";
-                }else{
+                } else {
                     notfall = false;
                     Notfall = "kein Notfall";
                 }
-                String PatientLang = (String)patientenList.getSelectedItem();
-                String [] patientString = PatientLang.split(" ");
-                String Patient =  patientString[0] + " " + patientString[1] + " " + krankheit +Notfall;
-                controller.PatientSpeichern(patientString[0], patientString[1], krankheit + Notfall,notfall);
-                controller.ArrayListTextAreaAnzeigen(WarteListe,Behandlung);
+                String PatientLang = (String) patientenList.getSelectedItem();
+                String[] patientString = PatientLang.split(" ");
+                String Patient = patientString[0] + " " + patientString[1] + " " + krankheit + Notfall;
+                Main.c.PatientSpeichern(patientString[0], patientString[1], krankheit + Notfall, notfall);
+                Main.st.GuiAktualisieren();
             }
         });
 
-        DerNaechste.addActionListener(new AbstractAction() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                controller.dernaechste(WarteListe,Behandlung);
-            }
-        });
+
     }
 
     public void ComboBoxFill(){

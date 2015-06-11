@@ -8,13 +8,14 @@ import java.io.PrintWriter;
 public class Main {
 //Klasse Main
 
-
+    public static Startmenü st;
+    public static Controller c;
 
     public static void main(String[] args) {
 
-        Controller c = new Controller();
+         c = new Controller();
         //Menue m = new Menue(c);
-        Startmenü st = new Startmenü();
+        st = new Startmenü();
 
 
 

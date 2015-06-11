@@ -13,6 +13,9 @@ public class Startmenü extends JFrame{
     private JPanel panel;
     private JButton patientInPraxisAufnehmenButton;
     private JButton rezeptErstellenButton;
+    private JTextPane WarteListe;
+    private JTextPane aktuelleBehandlung;
+    private JButton derNächste;
     PrintWriter pWriter = null;
 
     public Startmenü(){
@@ -35,8 +38,7 @@ public class Startmenü extends JFrame{
         patientInPraxisAufnehmenButton.addActionListener(new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Controller c = new Controller();
-                Praxis p = new Praxis(c);
+                Praxis p = new Praxis();
             }
         });
 
@@ -92,5 +94,10 @@ public class Startmenü extends JFrame{
             }
 
         }
+    }
+
+    public void GuiAktualisieren(){
+        Main.c.ArrayListTextAreaAnzeigen(WarteListe, aktuelleBehandlung);
+
     }
 }

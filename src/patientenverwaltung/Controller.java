@@ -54,10 +54,10 @@ public class Controller {
         }
     }
 
-    public void ArrayListTextAreaAnzeigen(JTextArea TextArea, JTextArea Behandlung){
-        JTextArea Area;
+    public void ArrayListTextAreaAnzeigen(JTextPane TextArea, JTextPane Behandlung){
+        JTextPane Area;
         Area = TextArea;
-        JTextArea behandlung;
+        JTextPane behandlung;
         behandlung = Behandlung;
         String Patienten = "";
         Patient patient_behandlung = null;
@@ -89,7 +89,7 @@ public class Controller {
         }
     }
 
-    public void dernaechste(JTextArea TextArea, JTextArea Behandlung){
+    public void dernaechste(JTextPane TextArea, JTextPane Behandlung){
         if(patienten.size()!=0){
             patienten.remove(0);
             ArrayListTextAreaAnzeigen(TextArea,Behandlung);
