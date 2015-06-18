@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import static patientenverwaltung.Controller.*;
 
 
-public class Menue extends JFrame {
+public class PatientErstellen extends JFrame {
 
     private JButton speichernButton;
     private JTextField vorname;
@@ -34,13 +34,13 @@ public class Menue extends JFrame {
     PrintWriter pWriter = null;
 
 
-    public Menue(){
+    public PatientErstellen(){
 
         setBounds(100, 100, 550, 300);
         setVisible(true);
         setContentPane(panel);
+        super.setTitle("Patienten Erstellen");
         ButtonInitialisieren();
-        //this.controller = c;
         super.setTitle("Neuen Patienten hinzufügen");
 
     }

@@ -31,14 +31,14 @@ public class Startmenü extends JFrame{
         neuenPatientenZurPraxisButton.addActionListener(new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Menue m = new Menue();
+                PatientErstellen m = new PatientErstellen();
             }
         });
 
         patientInPraxisAufnehmenButton.addActionListener(new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Praxis p = new Praxis();
+                PatientAufnehmen p = new PatientAufnehmen();
             }
         });
 
@@ -47,6 +47,13 @@ public class Startmenü extends JFrame{
             public void actionPerformed(ActionEvent e) {
 
                 Rezept r = new Rezept();
+            }
+        });
+
+        derNächste.addActionListener(new AbstractAction(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Main.c.dernaechste(WarteListe,aktuelleBehandlung);
             }
         });
 

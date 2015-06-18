@@ -6,7 +6,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class Praxis extends JFrame{
+public class PatientAufnehmen extends JFrame{
     private JPanel panel;
     private JComboBox patientenList;
     private JTextField Krankheit;
@@ -15,11 +15,11 @@ public class Praxis extends JFrame{
 
 
 
-    public Praxis(){
+    public PatientAufnehmen(){
         setBounds(100, 100, 550, 550);
         setVisible(true);
         setContentPane(panel);
-        super.setTitle("Praxis");
+        super.setTitle("Patienten Aufnehmen");
         ComboBoxFill();
         ButtonInitialisieren();
     }

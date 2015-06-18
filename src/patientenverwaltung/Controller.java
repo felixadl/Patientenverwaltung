@@ -83,7 +83,6 @@ public class Controller {
                 patient = patienten.get(i);
                 p = patient.PatientInfo();
                 Patienten = Patienten + " " + p + "\n";
-                System.out.println(Patienten);
                 Area.setText(Patienten);
             }
         }
