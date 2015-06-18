@@ -50,6 +50,13 @@ public class Startmenü extends JFrame{
             }
         });
 
+        derNächste.addActionListener(new AbstractAction(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Main.c.dernaechste(WarteListe,aktuelleBehandlung);
+            }
+        });
+
     }
 
     public void SortTxt(String txt){
