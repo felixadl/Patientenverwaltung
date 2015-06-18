@@ -1,15 +1,17 @@
 package patientenverwaltung;
 
+import javafx.scene.image.*;
+
 import javax.imageio.ImageIO;
+import javax.imageio.stream.ImageInputStream;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.image.BufferedImage;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
-import java.net.URL;
+import java.io.*;
+import ea.internal.io.ImageLoader;
+
 
 
 public class Rezept extends JFrame {
@@ -22,8 +24,12 @@ public class Rezept extends JFrame {
     private JTextField geburtsdatumtxt;
     private JButton rezeptErstellenButton;
 
+    private BufferedImage image;
 
-    public Rezept () {
+
+
+
+    public Rezept ()  {
 
         this.setBounds(100, 100, 500, 500);
         this.setVisible(true);
@@ -32,10 +38,14 @@ public class Rezept extends JFrame {
         this.ComboBoxFill();
         this.ButtonInitialisieren();
 
+        this.image = ImageLoader.loadExternalImage("rotesRezept.png");
+
+
+
 
     }
 
-    private void ButtonInitialisieren() {
+    private void ButtonInitialisieren()  {
 
 
         patientUebernehmenButton.addActionListener(new AbstractAction() {
@@ -56,12 +66,25 @@ public class Rezept extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
 
+                Graphics g = image.getGraphics();
+                g.setFont(g.getFont().deriveFont(30f));
+                g.drawString("Hello World!", 100, 100);
+                g.dispose();
+
+                try {
+                    ImageIO.write(image, "png", new File("test.png"));
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
 
 
             }
         });
-
     }
+
+
+
+
 
     public void ComboBoxFill(){
         String line;
