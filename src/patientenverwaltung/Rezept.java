@@ -1,17 +1,13 @@
 package patientenverwaltung;
 
-import javafx.scene.image.*;
-
 import javax.imageio.ImageIO;
-import javax.imageio.stream.ImageInputStream;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.image.BufferedImage;
 import java.io.*;
-import ea.internal.io.ImageLoader;
-
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 
 public class Rezept extends JFrame {
@@ -25,6 +21,7 @@ public class Rezept extends JFrame {
     private JButton rezeptErstellenButton;
 
     private BufferedImage image;
+    private String dateString;
 
 
 
@@ -37,8 +34,13 @@ public class Rezept extends JFrame {
         super.setTitle("Rezept erstellen");
         this.ComboBoxFill();
         this.ButtonInitialisieren();
+        BufferedImage image;
 
-        this.image = ImageLoader.loadExternalImage("rotesRezept.png");
+
+        Date date = java.util.Calendar.getInstance().getTime();
+        SimpleDateFormat dateFormatter =
+                new SimpleDateFormat("dd.MM.yyyy");
+        this.dateString = dateFormatter.format(date);
 
 
 
@@ -66,15 +68,27 @@ public class Rezept extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                Graphics g = image.getGraphics();
-                g.setFont(g.getFont().deriveFont(30f));
-                g.drawString("Hello World!", 100, 100);
-                g.dispose();
 
+                File file = new File("rotesRezept.png");
                 try {
-                    ImageIO.write(image, "png", new File("test.png"));
-                } catch (IOException e1) {
-                    e1.printStackTrace();
+                    image = ImageIO.read(file);
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+
+                //bearbeiten
+                Graphics g = image.getGraphics();
+                g.setFont(new Font("Sans", Font.PLAIN, 25));
+                g.setColor(Color.BLACK);
+                g.drawString(vornametxt.getText() + " " + nachnametxt.getText(), 75, 159);
+                g.drawString(dateString, 900, 650);
+
+                //speichern
+                try {
+                    ImageIO.write(image, "PNG", new File("rotesRezept" + vornametxt.getText() + nachnametxt.getText() + ".PNG"));
+                   //System.out.println("Bild wurder erfolgreich unter /Bilder/RezeptFertig1.png gesichert");
+                } catch (IOException ex) {
+                    ex.printStackTrace();
                 }
 
 
